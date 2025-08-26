@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SingIt Lab! - Made for You</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@500;700&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(circle at top, #0a0a1a, #000000);
+      color: #fff;
+      text-align: center;
+    }
+
+    header {
+      padding: 80px 20px;
+    }
+
+    header h1 {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 3em;
+      color: #ff0080;
+      text-shadow: 0 0 10px #ff0080, 0 0 20px #ff0080, 0 0 40px #00ffff;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #ffcc00;
+      text-shadow: 0 0 10px #ffcc00;
+    }
+
+    .services ul {
+      list-style: none;
+      padding: 0;
+      font-size: 1.1em;
+    }
+
+    .services li {
+      margin: 15px 0;
+    }
+
+    .audio-player audio {
+      margin: 20px auto;
+      display: block;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    input, textarea, button {
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      font-size: 1em;
+    }
+
+    button {
+      background: #ff0080;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ff0080;
+    }
+
+    footer {
+      padding: 20px;
+      font-size: 0.9em;
+      color: #888;
+      border-top: 1px solid #333;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>SingIt Lab!</h1>
+    <p>Made for You</p>
+    <a href="#demos"><button>Écouter une démo</button></a>
+    <a href="#contact"><button>Nous contacter</button></a>
+  </header>
+
+  <section id="about">
+    <h2>À propos</h2>
+    <p>SingIt Lab! est un laboratoire créatif qui transforme vos idées en chansons, musiques et ambiances sonores sur mesure. Fondé par Pascal Blach, compositeur et producteur ayant collaboré avec Universal, Sony et plusieurs labels internationaux.</p>
+  </section>
+
+  <section id="services" class="services">
+    <h2>Nos services</h2>
+    <ul>
+      <li>🎤 Chanson personnalisée : anniversaires, mariages, hommages.</li>
+      <li>🔊 Identité sonore : jingles, hymnes, ambiances musicales pour campings, parcs et entreprises.</li>
+      <li>🎚 Production musicale : arrangements, mixage et habillage sonore professionnel.</li>
+      <li>📝 Accompagnement artistique : paroles, toplines et coaching studio.</li>
+    </ul>
+  </section>
+
+  <section id="demos" class="audio-player">
+    <h2>Écouter nos démos</h2>
+    <audio controls>
+      <source src="demo1.mp3" type="audio/mpeg">
+      Votre navigateur ne supporte pas l'audio.
+    </audio>
+    <audio controls>
+      <source src="demo2.mp3" type="audio/mpeg">
+      Votre navigateur ne supporte pas l'audio.
+    </audio>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <form>
+      <input type="text" placeholder="Votre nom" required>
+      <input type="email" placeholder="Votre email" required>
+      <textarea placeholder="Votre message" rows="5" required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 SingIt Lab! - Made for You</p>
+  </footer>
+
+</body>
+</html>
