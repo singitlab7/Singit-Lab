@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Singit Lab - Démos Vintage</title>
+    <title>Singit Lab - Made for you</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
@@ -40,21 +40,33 @@
             max-width: 250px;
         }
 
-        h2 {
-            text-align: center;
-            font-weight: 700;
-            margin-bottom: 40px;
-            border-bottom: 3px solid var(--couleur-accent);
-            padding-bottom: 10px;
+        section {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
         }
 
+        h2 {
+            font-weight: 700;
+            color: var(--couleur-texte);
+            border-bottom: 3px solid var(--couleur-accent);
+            padding-bottom: 10px;
+            margin-top: 0;
+            text-align: left;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+        
         .demos-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
-        /* --- Style de la cassette K7 --- */
         .cassette-player {
             background-color: var(--cassette-shell);
             border: 2px solid var(--cassette-dark);
@@ -78,11 +90,10 @@
         .bobine {
             width: 45px;
             height: 45px;
-            opacity: 0; /* Les bobines sont invisibles par défaut */
+            opacity: 0;
             transition: opacity 0.3s ease;
         }
         
-        /* Quand la classe .playing est active, on montre les bobines */
         .cassette-player.playing .bobine {
             opacity: 1;
         }
@@ -129,16 +140,25 @@
         </header>
 
         <main>
+            <!-- SECTION PRÉSENTATION / BIO -->
+            <section id="presentation">
+                <h2>Qui sommes-nous ?</h2>
+                <p>
+                    Bienvenue chez Singit Lab ! Nous sommes un studio de création musicale passionné, spécialisé dans la production de chansons personnalisées pour tous vos événements.
+                    <strong>(Remplacez ce texte par votre propre description, votre bio, votre histoire...)</strong>
+                </p>
+            </section>
+
+            <!-- SECTION AVEC LA LISTE DES DÉMOS -->
             <section id="demos">
-                <h2>Nos Démos Vintage</h2>
+                <h2>Nos Démos</h2>
                 
                 <div class="demos-list">
 
                     <!-- LECTEUR K7 - DÉMO 1 -->
                     <div class="cassette-player">
                         <div class="cassette-window">
-                            <img src="bobine.gif" alt="Bobine animée" class="bobine">
-                            <img src="bobine.gif" alt="Bobine animée" class="bobine">
+                            <img src="bobine.gif" class="bobine"><img src="bobine.gif" class="bobine">
                         </div>
                         <div class="cassette-label">Anniversaire Magique</div>
                         <div class="controls">
@@ -150,8 +170,7 @@
                     <!-- LECTEUR K7 - DÉMO 2 -->
                     <div class="cassette-player">
                         <div class="cassette-window">
-                            <img src="bobine.gif" alt="Bobine animée" class="bobine">
-                            <img src="bobine.gif" alt="Bobine animée" class="bobine">
+                           <img src="bobine.gif" class="bobine"><img src="bobine.gif" class="bobine">
                         </div>
                         <div class="cassette-label">Happy Birthday Viktor</div>
                         <div class="controls">
@@ -163,8 +182,7 @@
                     <!-- LECTEUR K7 - DÉMO 3 -->
                     <div class="cassette-player">
                         <div class="cassette-window">
-                            <img src="bobine.gif" alt="Bobine animée" class="bobine">
-                            <img src="bobine.gif" alt="Bobine animée" class="bobine">
+                            <img src="bobine.gif" class="bobine"><img src="bobine.gif" class="bobine">
                         </div>
                         <div class="cassette-label">Parc Monstertruck</div>
                         <div class="controls">
@@ -173,53 +191,60 @@
                         <audio src="parc-monstertruck-demo.mp3" preload="auto"></audio>
                     </div>
 
-                    <!-- Ajoutez d'autres lecteurs ici en copiant-collant un des blocs ci-dessus et en changeant le titre et le nom du fichier audio -->
+                    <!-- LECTEUR K7 - DÉMO 4 -->
+                    <div class="cassette-player">
+                        <div class="cassette-window">
+                           <img src="bobine.gif" class="bobine"><img src="bobine.gif" class="bobine">
+                        </div>
+                        <div class="cassette-label">Parc Mouna</div>
+                        <div class="controls">
+                            <button class="play-button">▶️ PLAY</button>
+                        </div>
+                        <audio src="parc-mouna-mp3.mp3" preload="auto"></audio>
+                    </div>
+                    
+                    <!-- LECTEUR K7 - DÉMO 5 -->
+                    <div class="cassette-player">
+                        <div class="cassette-window">
+                           <img src="bobine.gif" class="bobine"><img src="bobine.gif" class="bobine">
+                        </div>
+                        <div class="cassette-label">Parc Jetstar</div>
+                        <div class="controls">
+                            <button class="play-button">▶️ PLAY</button>
+                        </div>
+                        <audio src="parc-jetstar-mp3.mp3" preload="auto"></audio>
+                    </div>
 
                 </div>
             </section>
         </main>
-
     </div>
 
     <script>
-        // Ce script gère TOUS les lecteurs de la page
         const tousLesBoutonsPlay = document.querySelectorAll('.play-button');
-
         tousLesBoutonsPlay.forEach(bouton => {
             bouton.addEventListener('click', () => {
-                // On trouve le conteneur et le fichier audio les plus proches de CE bouton
                 const lecteurCassette = bouton.closest('.cassette-player');
                 const fichierAudio = lecteurCassette.querySelector('audio');
-
-                // Si la musique est en pause, on la joue
                 if (fichierAudio.paused) {
-                    // Petite astuce : on arrête toutes les autres musiques avant de lancer la nouvelle
                     document.querySelectorAll('audio').forEach(audio => audio.pause());
-                    
                     fichierAudio.play();
                     bouton.innerHTML = "⏹️ STOP";
                     lecteurCassette.classList.add('playing');
                 } else {
-                    // Sinon, on la met en pause
                     fichierAudio.pause();
                 }
             });
         });
-
-        // Pour chaque lecteur, on remet le bouton à son état initial quand la musique se termine
         document.querySelectorAll('audio').forEach(fichierAudio => {
-            fichierAudio.addEventListener('pause', () => {
+            const resetPlayer = () => {
                 const lecteurCassette = fichierAudio.closest('.cassette-player');
                 lecteurCassette.querySelector('.play-button').innerHTML = "▶️ PLAY";
                 lecteurCassette.classList.remove('playing');
-            });
-             fichierAudio.addEventListener('ended', () => {
-                const lecteurCassette = fichierAudio.closest('.cassette-player');
-                lecteurCassette.querySelector('.play-button').innerHTML = "▶️ PLAY";
-                lecteurCassette.classList.remove('playing');
-            });
+            };
+            fichierAudio.addEventListener('pause', resetPlayer);
+            fichierAudio.addEventListener('ended', resetPlayer);
         });
     </script>
-
 </body>
 </html>
