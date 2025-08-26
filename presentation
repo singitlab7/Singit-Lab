@@ -7,19 +7,143 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
-        :root{--couleur-fond:#F5F1E8;--couleur-texte:#1D1E18;--couleur-accent:#E63946}body{background-color:var(--couleur-fond);font-family:'Poppins',sans-serif;color:var(--couleur-texte);margin:0;padding:0;line-height:1.7}.container{max-width:800px;margin:0 auto;padding:20px}.header{text-align:center;padding:40px 0}.header img{max-width:150px;margin-bottom:20px}.presentation-card{background-color:#fff;border-radius:15px;padding:40px 50px;box-shadow:0 5px 20px rgba(0,0,0,.08)}h1,h2{font-family:'Lora',serif;font-weight:700}h1{text-align:center;font-size:2.5em;margin-top:0;margin-bottom:30px}h2{font-size:1.8em;border-left:4px solid var(--couleur-accent);padding-left:15px;margin-top:40px;margin-bottom:20px}p{margin-bottom:20px;text-align:justify}ul{list-style:none;padding-left:0}ul li{padding-left:30px;position:relative;margin-bottom:15px}ul li::before{content:'🎵';position:absolute;left:0;top:0;font-size:1.2em}.tagline{text-align:center;font-size:1.2em;font-weight:700;color:var(--couleur-accent);margin-top:40px}.footer-nav{text-align:center;margin-top:40px;padding-bottom:20px}.nav-button{display:inline-block;background-color:var(--couleur-accent);color:#fff;padding:12px 25px;border-radius:5px;text-decoration:none;font-weight:700;transition:background-color .2s ease}.nav-button:hover{background-color:var(--couleur-texte)}
+        :root {
+            --couleur-fond: #F5F1E8;
+            --couleur-texte: #1D1E18;
+            --couleur-accent: #E63946;
+        }
+
+        body {
+            background-color: var(--couleur-fond);
+            font-family: 'Poppins', sans-serif;
+            color: var(--couleur-texte);
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .header img {
+            max-width: 150px;
+            margin-bottom: 20px;
+        }
+
+        .presentation-card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 40px 50px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        h1, h2 {
+            font-family: 'Lora', serif;
+            font-weight: 700;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            border-left: 4px solid var(--couleur-accent);
+            padding-left: 15px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        /* Style pour la liste des services */
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        ul li {
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 15px;
+        }
+        
+        ul li::before {
+            content: '🎵'; /* Emoji note de musique comme puce */
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.2em;
+        }
+
+        .tagline {
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: 700;
+            color: var(--couleur-accent);
+            margin-top: 40px;
+        }
+        
+        .footer-nav {
+            text-align: center;
+            margin-top: 40px;
+            padding-bottom: 20px;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            background-color: var(--couleur-accent);
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background-color 0.2s ease;
+        }
+        
+        .nav-button:hover {
+            background-color: var(--couleur-texte);
+        }
+
     </style>
 </head>
 <body>
+
     <div class="container">
         <header class="header">
-            <a href="index.html"><img src="logo-singit.jpg.jpg" alt="Logo de Singit Lab"></a>
+            <!-- Lien pour revenir à la page d'accueil (index.html) -->
+            <a href="index.html">
+                <img src="logo-singit.jpg.jpg" alt="Logo de Singit Lab">
+            </a>
         </header>
+
         <main class="presentation-card">
+            
             <h1>Présentation – Singit Lab</h1>
-            <p>Singit Lab est un studio créatif spécialisé dans la composition musicale sur mesure et la création sonore pour les marques, les clubs, les événements et les artistes.</p>
-            <p>Fondé par Pascal Blach, musicien et producteur avec une longue expérience dans l’édition et la scène internationale (collaborations avec Universal, Sony et plusieurs labels reconnus), Singit Lab met la musique au service de l’image et de l’émotion.</p>
+
+            <p>
+                Singit Lab est un studio créatif spécialisé dans la composition musicale sur mesure et la création sonore pour les marques, les clubs, les événements et les artistes.
+            </p>
+            <p>
+                Fondé par Pascal Blach, musicien et producteur avec une longue expérience dans l’édition et la scène internationale (collaborations avec Universal, Sony et plusieurs labels reconnus), Singit Lab met la musique au service de l’image et de l’émotion.
+            </p>
+
             <h2>Ce que nous faisons</h2>
             <ul>
                 <li>Composition de morceaux originaux adaptés à vos besoins (publicité, événementiel, réseaux sociaux, podcasts, discothèques, etc.)</li>
@@ -27,13 +151,22 @@
                 <li>Sound design et habillage musical pour vos supports de communication</li>
                 <li>Production et mixage professionnels pour un rendu prêt à diffuser</li>
             </ul>
+            
             <h2>Notre philosophie : une musique pensée pour vous, avec vous.</h2>
-            <p>Chaque projet est conçu comme une pièce unique, qui porte votre message et parle directement à votre public.</p>
-            <p class="tagline">Singit Lab – Music made for you.</p>
+            <p>
+                Chaque projet est conçu comme une pièce unique, qui porte votre message et parle directement à votre public.
+            </p>
+            
+            <p class="tagline">
+                Singit Lab – Music made for you.
+            </p>
+
         </main>
+        
         <footer class="footer-nav">
              <a href="index.html" class="nav-button">Retour aux Démos</a>
         </footer>
     </div>
+
 </body>
 </html>
