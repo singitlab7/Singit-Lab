@@ -158,7 +158,8 @@
                     <!-- LECTEUR K7 - DÉMO 1 -->
                     <div class="cassette-player">
                         <div class="cassette-window">
-                            <img src="bobine.gif" class="bobine"><img src="bobine.gif" class="bobine">
+                           <!-- On retire le src d'ici -->
+                           <img alt="Bobine" class="bobine"><img alt="Bobine" class="bobine">
                         </div>
                         <div class="cassette-label">Anniversaire Magique</div>
                         <div class="controls">
@@ -170,7 +171,7 @@
                     <!-- LECTEUR K7 - DÉMO 2 -->
                     <div class="cassette-player">
                         <div class="cassette-window">
-                           <img src="bobine.gif" class="bobine"><img src="bobine.gif" class="bobine">
+                           <img alt="Bobine" class="bobine"><img alt="Bobine" class="bobine">
                         </div>
                         <div class="cassette-label">Happy Birthday Viktor</div>
                         <div class="controls">
@@ -182,7 +183,7 @@
                     <!-- LECTEUR K7 - DÉMO 3 -->
                     <div class="cassette-player">
                         <div class="cassette-window">
-                            <img src="bobine.gif" class="bobine"><img src="bobine.gif" class="bobine">
+                            <img alt="Bobine" class="bobine"><img alt="Bobine" class="bobine">
                         </div>
                         <div class="cassette-label">Parc Monstertruck</div>
                         <div class="controls">
@@ -190,44 +191,34 @@
                         </div>
                         <audio src="parc-monstertruck-demo.mp3" preload="auto"></audio>
                     </div>
-
-                    <!-- LECTEUR K7 - DÉMO 4 -->
-                    <div class="cassette-player">
-                        <div class="cassette-window">
-                           <img src="bobine.gif" class="bobine"><img src="bobine.gif" class="bobine">
-                        </div>
-                        <div class="cassette-label">Parc Mouna</div>
-                        <div class="controls">
-                            <button class="play-button">▶️ PLAY</button>
-                        </div>
-                        <audio src="parc-mouna-mp3.mp3" preload="auto"></audio>
-                    </div>
                     
-                    <!-- LECTEUR K7 - DÉMO 5 -->
-                    <div class="cassette-player">
-                        <div class="cassette-window">
-                           <img src="bobine.gif" class="bobine"><img src="bobine.gif" class="bobine">
-                        </div>
-                        <div class="cassette-label">Parc Jetstar</div>
-                        <div class="controls">
-                            <button class="play-button">▶️ PLAY</button>
-                        </div>
-                        <audio src="parc-jetstar-mp3.mp3" preload="auto"></audio>
-                    </div>
+                    <!-- Ajoutez d'autres lecteurs ici -->
 
                 </div>
             </section>
         </main>
     </div>
 
+    <!-- SCRIPT CORRIGÉ ET AMÉLIORÉ -->
     <script>
         const tousLesBoutonsPlay = document.querySelectorAll('.play-button');
+        
         tousLesBoutonsPlay.forEach(bouton => {
             bouton.addEventListener('click', () => {
                 const lecteurCassette = bouton.closest('.cassette-player');
                 const fichierAudio = lecteurCassette.querySelector('audio');
+                const lesBobines = lecteurCassette.querySelectorAll('.bobine');
+
                 if (fichierAudio.paused) {
+                    // 1. On arrête toutes les autres musiques
                     document.querySelectorAll('audio').forEach(audio => audio.pause());
+                    
+                    // 2. NOUVEAU : On charge l'animation des bobines UNIQUEMENT pour cette cassette
+                    lesBobines.forEach(bobine => {
+                        bobine.src = 'bobine.gif';
+                    });
+                    
+                    // 3. On lance la musique
                     fichierAudio.play();
                     bouton.innerHTML = "⏹️ STOP";
                     lecteurCassette.classList.add('playing');
@@ -236,12 +227,21 @@
                 }
             });
         });
+
         document.querySelectorAll('audio').forEach(fichierAudio => {
             const resetPlayer = () => {
                 const lecteurCassette = fichierAudio.closest('.cassette-player');
+                const lesBobines = lecteurCassette.querySelectorAll('.bobine');
+                
+                // NOUVEAU : On décharge l'animation pour économiser les ressources
+                lesBobines.forEach(bobine => {
+                    bobine.src = ''; 
+                });
+                
                 lecteurCassette.querySelector('.play-button').innerHTML = "▶️ PLAY";
                 lecteurCassette.classList.remove('playing');
             };
+            
             fichierAudio.addEventListener('pause', resetPlayer);
             fichierAudio.addEventListener('ended', resetPlayer);
         });
