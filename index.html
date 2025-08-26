@@ -20,4 +20,47 @@
             <section id="presentation">
                 <h2>Qui sommes-nous ?</h2>
                 <p>Singit Lab est un studio créatif spécialisé dans la composition musicale sur mesure. Fondé par Pascal Blach, musicien et producteur, nous mettons la musique au service de l’image et de l’émotion.</p>
-                <a href="presentation.html" cla
+                <a href="presentation.html" class="nav-button" style="margin-top:15px;">En savoir plus sur nous</a>
+            </section>
+            <section id="demos">
+                <h2>Nos Démos</h2>
+                <div class="demos-list">
+                    <div class="cassette-player">
+                        <div class="cassette-window"><img alt="Bobine" class="bobine"><img alt="Bobine" class="bobine"></div>
+                        <div class="cassette-label">Anniversaire Magique</div>
+                        <div class="controls"><button class="play-button">▶️ PLAY</button></div>
+                        <audio src="anniversaire-wyk.mp3" preload="auto"></audio>
+                    </div>
+                    <div class="cassette-player">
+                        <div class="cassette-window"><img alt="Bobine" class="bobine"><img alt="Bobine" class="bobine"></div>
+                        <div class="cassette-label">Happy Birthday Viktor</div>
+                        <div class="controls"><button class="play-button">▶️ PLAY</button></div>
+                        <audio src="happybirthday-viktor.mp3" preload="auto"></audio>
+                    </div>
+                    <div class="cassette-player">
+                        <div class="cassette-window"><img alt="Bobine" class="bobine"><img alt="Bobine" class="bobine"></div>
+                        <div class="cassette-label">Parc Monstertruck</div>
+                        <div class="controls"><button class="play-button">▶️ PLAY</button></div>
+                        <audio src="parc-monstertruck-demo.mp3" preload="auto"></audio>
+                    </div>
+                    <div class="cassette-player">
+                        <div class="cassette-window"><img alt="Bobine" class="bobine"><img alt="Bobine" class="bobine"></div>
+                        <div class="cassette-label">Parc Mouna</div>
+                        <div class="controls"><button class="play-button">▶️ PLAY</button></div>
+                        <audio src="parc-mouna-mp3.mp3" preload="auto"></audio>
+                    </div>
+                    <div class="cassette-player">
+                        <div class="cassette-window"><img alt="Bobine" class="bobine"><img alt="Bobine" class="bobine"></div>
+                        <div class="cassette-label">Parc Jetstar</div>
+                        <div class="controls"><button class="play-button">▶️ PLAY</button></div>
+                        <audio src="parc-jetstar-mp3.mp3" preload="auto"></audio>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script>
+        const tousLesBoutonsPlay=document.querySelectorAll(".play-button");tousLesBoutonsPlay.forEach(e=>{e.addEventListener("click",()=>{const o=e.closest(".cassette-player"),t=o.querySelector("audio"),n=o.querySelectorAll(".bobine");t.paused?(document.querySelectorAll("audio").forEach(e=>e.pause()),n.forEach(e=>{e.src="bobine.gif"}),t.play(),e.innerHTML="⏹️ STOP",o.classList.add("playing")):t.pause()})}),document.querySelectorAll("audio").forEach(e=>{const o=()=>{const t=e.closest(".cassette-player"),n=t.querySelectorAll(".bobine");n.forEach(e=>{e.src=""}),t.querySelector(".play-button").innerHTML="▶️ PLAY",t.classList.remove("playing")};e.addEventListener("pause",o),e.addEventListener("ended",o)});
+    </script>
+</body>
+</html>
