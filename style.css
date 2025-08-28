@@ -31,7 +31,7 @@ body {
 
 .header {
     margin-bottom: 20px;
-    position: relative; /* Gardé pour le positionnement du GIF */
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -43,20 +43,20 @@ body {
     border: 2px solid #fff;
     border-radius: 50%;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-    z-index: 2; /* Pour que le logo soit au-dessus si le GIF déborde */
+    z-index: 2; /* Le logo reste au-dessus */
 }
 
-/* Nouvelles règles pour le positionnement du GIF animé */
 .moule-frite-gif-container {
-    position: absolute; /* Positionnement absolu par rapport au .header */
-    top: 130px; /* Ajuste cette valeur pour le placer sous "MADE FOR YOU" */
+    position: absolute;
+    /* Ajustement de la position top pour descendre le GIF */
+    top: 180px; /* Augmenté de 130px à 180px pour le descendre */
     left: 50%;
-    transform: translateX(-50%); /* Centrage horizontal */
-    z-index: 1; /* Pour qu'il soit derrière le logo si nécessaire */
+    transform: translateX(-50%);
+    z-index: 1; /* Le GIF reste en dessous du logo */
 }
 
 .moule-frite-danse {
-    width: 130px; /* Taille légèrement augmentée */
+    width: 130px;
     height: auto;
 }
 
@@ -115,4 +115,79 @@ body {
 
 .play-button {
     width: 200px;
-    height: 2
+    height: 200px;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 5px solid white;
+    box-shadow: 0 0 25px rgba(255, 51, 51, 0.9);
+    transition: transform 0.2s, box-shadow 0.2s;
+    z-index: 2;
+    background-color: transparent;
+}
+
+.play-button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 40px rgba(255, 51, 51, 1);
+}
+
+@keyframes boomer-bounce {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-5px);
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        min-height: 100dvh;
+    }
+
+    .main-content {
+        justify-content: flex-start;
+        padding-top: 20px;
+    }
+
+    .container-elements {
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    .boomer {
+        width: 120px;
+        margin: 15px 0;
+    }
+
+    .play-button {
+        width: 150px;
+        height: 150px;
+        margin-top: 20px;
+    }
+
+    .logo {
+        width: 150px;
+    }
+
+    .titre-hymne {
+        font-size: 2em;
+        margin-top: 20px;
+        margin-bottom: 5px;
+    }
+    
+    .contact-email {
+        margin-top: 5px;
+        margin-bottom: 30px;
+        font-size: 1em;
+    }
+
+    .moule-frite-gif-container {
+        top: 150px; /* Ajustement pour mobile pour le descendre */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .moule-frite-danse {
+        width: 100px;
+    }
+}
