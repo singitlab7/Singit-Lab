@@ -11,21 +11,18 @@ body {
     font-family: 'Roboto', sans-serif;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    background-color: rgba(0, 0, 0, 0.4);
+    /* On garde le voile pour la lisibilité sur le fond d'herbe */
+    background-color: rgba(0, 0, 0, 0.4); 
 }
 
-.container-metal {
-    background-color: rgba(60, 60, 60, 0.9);
-    border: 3px solid #b0b0b0;
-    border-radius: 15px;
-    padding: 20px;
-    text-align: center;
-    max-width: 90%;
-    position: relative;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+/* Nouveau conteneur principal pour tout centrer sans le fond "métal" */
+.main-content {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%; /* Prend toute la hauteur disponible pour centrer verticalement */
 }
 
 .header {
@@ -33,46 +30,28 @@ body {
 }
 
 .logo {
-    width: 150px;
+    width: 200px; /* Logo plus grand */
     height: auto;
     border: 2px solid #fff;
     border-radius: 50%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Ombre plus douce */
 }
 
 .titre-hymne {
-    font-size: 2.5em;
+    font-size: 2.8em; /* Texte plus grand */
     font-weight: bold;
     line-height: 1.2;
-    margin: 0 0 30px;
+    margin: 30px 0; /* Marge pour espacer du logo et des boomers */
     letter-spacing: 2px;
     position: relative; 
+    text-align: center;
 }
 
+/* On enlève les moules-frites en masquant les pseudo-éléments */
 .titre-hymne::before,
 .titre-hymne::after {
-    content: '';
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    background-image: url('moule-frite.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    z-index: 1;
-    top: -20px;
+    display: none; 
 }
-
-.titre-hymne::before {
-    left: -100px;
-    transform: rotate(-15deg);
-}
-
-.titre-hymne::after {
-    right: -100px;
-    transform: rotate(15deg);
-}
-
 
 .container-elements {
     display: flex;
@@ -80,14 +59,16 @@ body {
     justify-content: center;
     position: relative;
     width: 100%;
+    margin-top: 30px; /* Marge au-dessus des boomers */
 }
 
 .boomer {
-    width: 100px;
+    width: 180px; /* Boomers plus grands */
     height: auto;
     border-radius: 50%;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
     filter: grayscale(100%);
+    margin: 0 30px; /* Espacement entre les boomers et le bouton */
 }
 
 .boomer.paused {
@@ -95,51 +76,66 @@ body {
     animation: none !important;
 }
 
-.boomer-left {
-    margin-right: 20px;
-}
-
-.boomer-right {
-    margin-left: 20px;
-}
+/* Pas besoin de boomer-left et boomer-right si on utilise les marges */
 
 .play-button {
-    width: 150px;
-    height: 150px;
+    width: 200px; /* Bouton Play plus grand */
+    height: 200px;
     cursor: pointer;
     border-radius: 50%;
     border: 5px solid white;
-    box-shadow: 0 0 20px rgba(255, 51, 51, 0.8);
+    box-shadow: 0 0 25px rgba(255, 51, 51, 0.9); /* Ombre plus prononcée */
     transition: transform 0.2s, box-shadow 0.2s;
     z-index: 2;
     background-color: transparent;
 }
 
 .play-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 30px rgba(255, 51, 51, 1);
+    transform: scale(1.08); /* Effet au survol légèrement plus grand */
+    box-shadow: 0 0 40px rgba(255, 51, 51, 1);
 }
 
+.contact-email {
+    margin-top: 50px; /* Espace en bas pour l'email */
+    font-size: 1.2em;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
 @media (max-width: 768px) {
-    .container-elements {
-        flex-direction: column;
+    .main-content {
+        justify-content: flex-start; /* Aligne en haut sur mobile */
+        padding-top: 20px;
     }
 
-    .boomer-left, .boomer-right {
-        margin: 10px 0;
+    .container-elements {
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    .boomer {
+        width: 120px;
+        margin: 15px 0;
+    }
+
+    .play-button {
+        width: 150px;
+        height: 150px;
+        margin-top: 20px;
+    }
+
+    .logo {
+        width: 150px;
     }
 
     .titre-hymne {
-        font-size: 1.8em;
+        font-size: 2em;
+        margin: 20px 0;
     }
 
-    .titre-hymne::before {
-        left: -40px;
-        top: 0;
-    }
-
-    .titre-hymne::after {
-        right: -40px;
-        top: 0;
+    .contact-email {
+        margin-top: 30px;
+        font-size: 1em;
     }
 }
