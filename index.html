@@ -1,146 +1,55 @@
-body {
-    background-image: url('gazon.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hymne Braderie de Lille 2025 - SingIt Lab!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
 
-.container-metal {
-    background-color: rgba(60, 60, 60, 0.9); /* Fond métal */
-    border: 3px solid #b0b0b0;
-    border-radius: 15px;
-    padding: 20px;
-    text-align: center;
-    max-width: 90%;
-    position: relative;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    <audio id="hymneAudio">
+        <source src="hymne.mp3" type="audio/mpeg">
+        Ton navigateur ne supporte pas l'élément audio.
+    </audio>
 
-.header {
-    margin-bottom: 20px;
-}
+    <div class="container-metal">
+        <div class="header">
+            <img src="logo-singit.jpg" alt="Logo SingIt Lab" class="logo">
+        </div>
+        
+        <h1 class="titre-hymne">Hymne<br>Braderie de Lille<br>2025</h1>
+        
+        <div class="container-elements">
+            <img src="moule-frite.png" alt="Moule frite" class="moule-frite">
+            <img src="bobine.gif" alt="Boomer 1" class="boomer boomer-left">
+            
+            <button id="playButton" class="play-button">
+                PLAY
+            </button>
+            
+            <img src="bobine.gif" alt="Boomer 2" class="boomer boomer-right">
+        </div>
 
-.logo {
-    width: 150px;
-    height: auto;
-    border: 2px solid #fff;
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
+    </div>
 
-.titre-hymne {
-    font-size: 2.5em;
-    font-weight: bold;
-    line-height: 1.2;
-    margin: 0 0 30px;
-    letter-spacing: 2px;
-}
+    <script>
+        const audio = document.getElementById('hymneAudio');
+        const playButton = document.getElementById('playButton');
 
-.container-elements {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    width: 100%;
-}
+        playButton.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                playButton.textContent = 'PAUSE';
+            } else {
+                audio.pause();
+                playButton.textContent = 'PLAY';
+            }
+        });
+    </script>
 
-/* Pseudo-éléments pour les moules-frites */
-.container-elements::before,
-.container-elements::after {
-    content: '';
-    position: absolute;
-    width: 120px; /* Taille ajustée pour les moules-frites */
-    height: 120px; /* Ajuste pour conserver les proportions */
-    background-image: url('moule-frite.png'); /* Utilisation de ton image */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    z-index: 1; /* Pour qu'elles soient au-dessus des autres éléments */
-}
-
-.container-elements::before {
-    left: -60px; /* Positionnement à gauche du conteneur */
-    top: 50%;
-    transform: translateY(-50%) rotate(-15deg); /* Légère rotation */
-}
-
-.container-elements::after {
-    right: -60px; /* Positionnement à droite du conteneur */
-    top: 50%;
-    transform: translateY(-50%) rotate(15deg); /* Légère rotation opposée */
-}
-
-.boomer {
-    width: 100px;
-    height: auto;
-    border-radius: 50%;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
-}
-
-.boomer-left {
-    margin-right: 20px;
-}
-
-.boomer-right {
-    margin-left: 20px;
-}
-
-.play-button {
-    background-color: #ff3333;
-    color: white;
-    font-size: 2em;
-    font-weight: bold;
-    padding: 20px 40px;
-    border-radius: 50%;
-    border: 5px solid white;
-    cursor: pointer;
-    box-shadow: 0 0 20px rgba(255, 51, 51, 0.8);
-    transition: transform 0.2s, box-shadow 0.2s;
-    text-transform: uppercase;
-    z-index: 2; /* Pour que le bouton soit au-dessus des moules-frites */
-}
-
-.play-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 30px rgba(255, 51, 51, 1);
-}
-
-@media (max-width: 768px) {
-    .container-elements {
-        flex-direction: column;
-    }
-
-    .boomer-left, .boomer-right {
-        margin: 10px 0;
-    }
-
-    .titre-hymne {
-        font-size: 1.8em;
-    }
-
-    /* Ajustement pour les moules-frites sur petits écrans */
-    .container-elements::before {
-        left: -30px;
-        top: 20%;
-        width: 80px;
-        height: 80px;
-    }
-
-    .container-elements::after {
-        right: -30px;
-        top: 80%;
-        width: 80px;
-        height: 80px;
-    }
-}
+</body>
+</html>
