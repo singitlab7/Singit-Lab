@@ -13,7 +13,7 @@
 
     <audio id="hymneAudio">
         <source src="hymne.mp3" type="audio/mpeg">
-        Ton navigateur ne supporte pas l'élément audio.
+        Votre navigateur ne supporte pas l'élément audio.
     </audio>
 
     <div class="main-content">
@@ -23,12 +23,12 @@
         
         <h1 class="titre-hymne">Hymne<br>Braderie de Lille<br>2025</h1>
         
-        <p class="contact-email">Contact : Singitlab7Gmail.com</p>
+        <p class="contact-email">Contact : Singitlab7@Gmail.com</p>
 
         <div class="paroles-container">
-            <marquee class="paroles" direction="left" scrollamount="8">
+            <div id="paroles" class="paroles-scroll">
                 🎵 Refrain : Ce week-end à Lille c'est la braderie, On chine, on rigole, on danse on rit, On chante on trinque toute la nuit, à la braderie tout est permis ! 🎵 Couplet 1 : Comme une envie de moule, Ok vas-y ça roule, On vient de sortir du bar, Je prends déjà tout le trottoir. Elle m'a tendu sa frite, je lui ai sorti "magik!" j'ai repris un ricard, Et repeint tout le trottoir. 🎵 Refrain : Ce week-end à Lille c'est la braderie, On chine, on rigole, on danse on rit, On chante on trinque toute la nuit, à la braderie tout est permis ! 🎵 Couplet 2 : Comme une envie de ronfler, Ok on va s'coucher, On vient de sortir du bar, faut y aller il est tard, je sentais trop la frite, Du coup j’ai pris la fuite, et j'ai repris ma route, à pied jusqu'à Hazbrouck...ouille!! 🎵 Refrain (final a capela) : Ce week-end à Lille c'est la braderie, On chine, on rigole, on danse on rit, On va trinquer toute la nuit, c'est ça le weekend de la braderie 🎵 Accapella : ooohlala...ohlalahooo! ooohlala...ohlalahooo! ooohlala...ohlalahooo! ooohlala...ohlalahooo! 🎵 Final musical : ooohlala...ohlalahooo! ooohlala...ohlalahooo! ooohlala...ohlalahooo! ooohlala...ohlalahooo! 🎵
-            </marquee>
+            </div>
         </div>
 
         <div class="container-elements">
@@ -44,14 +44,17 @@
         const audio = document.getElementById('hymneAudio');
         const playButton = document.getElementById('playButton');
         const boomers = document.querySelectorAll('.boomer');
+        const paroles = document.getElementById('paroles');
 
         playButton.addEventListener('click', () => {
             if (audio.paused) {
                 audio.play();
                 boomers.forEach(boomer => boomer.classList.remove('paused'));
+                paroles.style.animationPlayState = 'running';
             } else {
                 audio.pause();
                 boomers.forEach(boomer => boomer.classList.add('paused'));
+                paroles.style.animationPlayState = 'paused';
             }
         });
     </script>
