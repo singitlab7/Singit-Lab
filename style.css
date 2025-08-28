@@ -15,6 +15,10 @@ body {
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     background-color: rgba(0, 0, 0, 0.4);
+
+    /* Solution pour la bande grise sur mobile */
+    min-height: 100vh; /* S'assure d'avoir au moins la hauteur de la vue */
+    min-height: -webkit-fill-available; /* Pour les navigateurs iOS */
 }
 
 .main-content {
@@ -24,10 +28,15 @@ body {
     justify-content: center;
     width: 100%;
     height: 100%;
+    position: relative; /* Ajout pour positionner le GIF par rapport à main-content */
 }
 
 .header {
     margin-bottom: 20px;
+    position: relative; /* Pour positionner le GIF par rapport au header/logo */
+    display: flex; /* Pour garder le logo centré malgré le GIF */
+    flex-direction: column;
+    align-items: center;
 }
 
 .logo {
@@ -37,6 +46,20 @@ body {
     border-radius: 50%;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
 }
+
+.moule-frite-gif-container {
+    position: absolute;
+    top: 50%; /* Aligné verticalement avec le milieu du logo */
+    left: calc(50% + 80px); /* À droite du centre du logo */
+    transform: translateY(-50%); /* Ajuste la position verticale pour le centrage */
+    z-index: 10; /* S'assure qu'il est au-dessus des autres éléments */
+}
+
+.moule-frite-danse {
+    width: 100px; /* Taille du GIF */
+    height: auto;
+}
+
 
 .titre-hymne {
     font-size: 2.8em;
@@ -118,6 +141,11 @@ body {
 }
 
 @media (max-width: 768px) {
+    body {
+        /* Ajuste la hauteur sur mobile pour éviter la bande grise */
+        min-height: 100dvh; /* Nouvelle unité plus fiable sur mobile */
+    }
+
     .main-content {
         justify-content: flex-start;
         padding-top: 20px;
@@ -153,5 +181,15 @@ body {
         margin-top: 5px;
         margin-bottom: 30px;
         font-size: 1em;
+    }
+
+    .moule-frite-gif-container {
+        top: 0px; /* Aligne le GIF plus haut sur mobile */
+        left: calc(50% + 60px); /* Ajuste la position latérale sur mobile */
+        transform: none; /* Désactive le translateY sur mobile */
+    }
+
+    .moule-frite-danse {
+        width: 80px; /* Plus petit sur mobile */
     }
 }
