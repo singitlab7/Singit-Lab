@@ -19,6 +19,65 @@
     <div class="main-content">
         <div class="header">
             <img src="logo-singit.jpg" alt="Logo SingIt Lab" class="logo">
+        </div>
+        
+        <h1 class="titre-hymne">Hymne<br>Braderie de Lille<br>2025</h1>
+        
+        <p class="contact-email">Contact : Singitlab7@Gmail.com</p>
+
+        <div class="paroles-container">
+            <marquee class="paroles" direction="left" scrollamount="8">
+                🎵 Refrain - Ce week-end à Lille c'est la braderie, On chine, on rigole, on danse on rit, On chante on trinque toute la nuit, a la braderie tout est permis ! - Couplet 1 - Comme une envie de moule, Ok vas-y ça roule, On vient de sortir du bar, Je prends déjà tout le trottoir. Elle m'a tendu sa frite, je lui ai sorti "magik!" j'ai repris un ricard, Et repeint tout le trottoir. - Refrain - Ce week-end à Lille c'est la braderie, On chine, on rigole, on danse on rit, On chante on trinque toute la nuit, a la braderie tout est permis ! - Couplet 2 - Comme une envie de ronfler, Ok on va s'coucher, On vient de sortir du bar, faut y aller il est tard, je sentais trop la frite, Du coup j’ai pris la fuite, et j'ai repris ma route, a pied jusqu'à Hazbrouck...ouille!! - Refrain (final a capela) - Ce week-end à Lille c'est la braderie, On chine, on rigole, on danse on rit, On va trinquer toute la nuit, c'est ça le weekend de la braderie - (accap) - ooohlala...ohlalahooo! ooohlala...ohlalahooo! ooohlala...ohlalahooo! ooohlala...ohlalahooo! - (final musical) - ooohlala...ohlalahooo! ooohlala...ohlalahooo! ooohlala...ohlalahooo! ooohlala...ohlalahooo! 🎵
+            </marquee>
+        </div>
+
+        <div class="container-elements">
+            <img src="bobine.gif" alt="Boomer 1" class="boomer boomer-left paused">
+            
+            <img id="playButton" class="play-button" src="play-button.png" alt="Bouton Play">
+            
+            <img src="bobine.gif" alt="Boomer 2" class="boomer boomer-right paused">
+        </div>
+    </div>
+
+    <script>
+        const audio = document.getElementById('hymneAudio');
+        const playButton = document.getElementById('playButton');
+        const boomers = document.querySelectorAll('.boomer');
+
+        playButton.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                boomers.forEach(boomer => boomer.classList.remove('paused'));
+            } else {
+                audio.pause();
+                boomers.forEach(boomer => boomer.classList.add('paused'));
+            }
+        });
+    </script>
+
+</body>
+</html>!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hymne Braderie de Lille 2025 - SingIt Lab!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <audio id="hymneAudio">
+        <source src="hymne.mp3" type="audio/mpeg">
+        Ton navigateur ne supporte pas l'élément audio.
+    </audio>
+
+    <div class="main-content">
+        <div class="header">
+            <img src="logo-singit.jpg" alt="Logo SingIt Lab" class="logo">
             
             <div class="moule-frite-gif-container">
                 <img src="moule-frite-danse.gif" alt="Moule Frite Dansante" class="moule-frite-danse">
