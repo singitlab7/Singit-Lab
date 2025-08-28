@@ -15,7 +15,7 @@ body {
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     background-color: rgba(0, 0, 0, 0.4);
-    min-height: 100dvh; /* Solution pour la bande grise sur mobile */
+    min-height: 100dvh;
 }
 
 .main-content {
@@ -24,10 +24,11 @@ body {
     align-items: center;
     justify-content: center;
     width: 100%;
+    max-width: 800px;
     height: 100%;
     position: relative;
-    padding: 20px; /* Ajout d'un peu d'espace autour du contenu */
-    box-sizing: border-box; /* Pour que le padding ne s'ajoute pas à la largeur/hauteur totale */
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .header {
@@ -66,36 +67,45 @@ body {
 
 .contact-email {
     margin-top: 5px;
-    margin-bottom: 5px; /* Réduit la marge pour rapprocher le texte défilant */
+    margin-bottom: 5px;
     font-size: 1.2em;
     font-weight: bold;
     color: rgba(255, 255, 255, 0.8);
     z-index: 2;
 }
 
-/* Style pour le conteneur des paroles */
 .paroles-container {
     width: 80%;
-    background-color: rgb(60, 60, 60); /* Fond "métal" foncé */
-    border: 3px solid #b0b0b0; /* Bordure argentée pour l'effet métal */
+    background-color: rgb(60, 60, 60);
+    border: 3px solid #b0b0b0;
     border-radius: 15px;
-    padding: 15px 20px; /* Padding ajusté */
+    padding: 15px 20px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     margin-top: 15px;
     margin-bottom: 30px;
     text-align: center;
-    overflow: hidden; /* Important pour que le texte défile sans déborder */
-    z-index: 1; /* Pour qu'il soit sous les autres éléments importants si jamais il y a un chevauchement */
+    overflow: hidden;
+    z-index: 1;
 }
 
-/* Style pour le texte défilant à l'intérieur du conteneur */
-.paroles {
+.paroles-scroll {
     font-size: 1.2em;
     font-weight: bold;
     color: yellow;
     text-shadow: 1px 1px 2px black;
-    white-space: nowrap; /* Empêche le texte de passer à la ligne */
-    display: inline-block; /* Nécessaire pour le défilement dans marquee */
+    white-space: nowrap;
+    display: inline-block;
+    animation: paroles-defilement 60s linear infinite;
+    animation-play-state: paused;
+}
+
+@keyframes paroles-defilement {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
 .container-elements {
@@ -158,50 +168,42 @@ body {
     body {
         min-height: 100dvh;
     }
-
     .main-content {
-        padding: 10px; /* Moins de padding sur mobile */
+        padding: 10px;
     }
-
     .container-elements {
         flex-direction: column;
         margin-top: 20px;
     }
-
     .boomer {
         width: 120px;
         margin: 15px 0;
     }
-
     .play-button {
         width: 150px;
         height: 150px;
         margin-top: 20px;
     }
-
     .logo {
         width: 150px;
     }
-
     .titre-hymne {
         font-size: 2em;
         margin-top: 20px;
         margin-bottom: 5px;
     }
-    
     .contact-email {
         margin-top: 5px;
         margin-bottom: 5px;
         font-size: 1em;
     }
-
     .paroles-container {
-        width: 95%; /* Plus large sur mobile */
+        width: 95%;
         padding: 10px 15px;
         border-radius: 10px;
     }
-
-    .paroles {
+    .paroles-scroll {
         font-size: 1em;
+        animation-duration: 120s;
     }
 }
