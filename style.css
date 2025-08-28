@@ -46,7 +46,33 @@ body {
     line-height: 1.2;
     margin: 0 0 30px;
     letter-spacing: 2px;
+    position: relative; 
 }
+
+.titre-hymne::before,
+.titre-hymne::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-image: url('moule-frite.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+    top: -20px;
+}
+
+.titre-hymne::before {
+    left: -100px;
+    transform: rotate(-15deg);
+}
+
+.titre-hymne::after {
+    right: -100px;
+    transform: rotate(15deg);
+}
+
 
 .container-elements {
     display: flex;
@@ -54,31 +80,6 @@ body {
     justify-content: center;
     position: relative;
     width: 100%;
-}
-
-.container-elements::before,
-.container-elements::after {
-    content: '';
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    background-image: url('moule-frite.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    z-index: 1;
-}
-
-.container-elements::before {
-    left: -60px;
-    top: 50%;
-    transform: translateY(-50%) rotate(-15deg);
-}
-
-.container-elements::after {
-    right: -60px;
-    top: 50%;
-    transform: translateY(-50%) rotate(15deg);
 }
 
 .boomer {
@@ -132,7 +133,13 @@ body {
         font-size: 1.8em;
     }
 
-    .moule-frite {
-        width: 150px;
+    .titre-hymne::before {
+        left: -40px;
+        top: 0;
+    }
+
+    .titre-hymne::after {
+        right: -40px;
+        top: 0;
     }
 }
