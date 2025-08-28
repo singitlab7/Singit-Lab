@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <audio id="hymneAudio">
         <source src="hymne.mp3" type="audio/mpeg">
         Ton navigateur ne supporte pas l'élément audio.
@@ -26,9 +27,7 @@
             <img src="moule-frite.png" alt="Moule frite" class="moule-frite">
             <img src="bobine.gif" alt="Boomer 1" class="boomer boomer-left paused">
             
-            <button id="playButton" class="play-button">
-                PLAY
-            </button>
+            <img id="playButton" class="play-button" src="play-button.png" alt="Bouton Play">
             
             <img src="bobine.gif" alt="Boomer 2" class="boomer boomer-right paused">
         </div>
@@ -42,14 +41,13 @@
         playButton.addEventListener('click', () => {
             if (audio.paused) {
                 audio.play();
-                playButton.textContent = 'PAUSE';
                 boomers.forEach(boomer => boomer.classList.remove('paused'));
             } else {
                 audio.pause();
-                playButton.textContent = 'PLAY';
                 boomers.forEach(boomer => boomer.classList.add('paused'));
             }
         });
     </script>
+
 </body>
 </html>
