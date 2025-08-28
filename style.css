@@ -43,21 +43,7 @@ body {
     border: 2px solid #fff;
     border-radius: 50%;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-    z-index: 2; /* Le logo reste au-dessus */
-}
-
-.moule-frite-gif-container {
-    position: absolute;
-    /* Ajustement de la position top pour descendre le GIF */
-    top: 180px; /* Augmenté de 130px à 180px pour le descendre */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1; /* Le GIF reste en dessous du logo */
-}
-
-.moule-frite-danse {
-    width: 130px;
-    height: auto;
+    z-index: 2; 
 }
 
 .titre-hymne {
@@ -69,6 +55,7 @@ body {
     letter-spacing: 2px;
     position: relative;
     text-align: center;
+    z-index: 2;
 }
 
 .titre-hymne::before,
@@ -78,10 +65,30 @@ body {
 
 .contact-email {
     margin-top: 5px;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
     font-size: 1.2em;
     font-weight: bold;
     color: rgba(255, 255, 255, 0.8);
+    z-index: 2;
+}
+
+.paroles-container {
+    width: 80%;
+    background-color: rgb(60, 60, 60);
+    border: 3px solid #b0b0b0;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    margin-top: 15px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.paroles {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: yellow;
+    text-shadow: 1px 1px 2px black;
 }
 
 .container-elements {
@@ -91,6 +98,7 @@ body {
     position: relative;
     width: 100%;
     margin-top: 30px;
+    z-index: 2;
 }
 
 .boomer {
@@ -177,17 +185,16 @@ body {
     
     .contact-email {
         margin-top: 5px;
-        margin-bottom: 30px;
+        margin-bottom: 5px;
         font-size: 1em;
     }
 
-    .moule-frite-gif-container {
-        top: 150px; /* Ajustement pour mobile pour le descendre */
-        left: 50%;
-        transform: translateX(-50%);
+    .paroles-container {
+        width: 90%;
+        padding: 15px;
     }
 
-    .moule-frite-danse {
-        width: 100px;
+    .paroles {
+        font-size: 1em;
     }
 }
