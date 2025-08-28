@@ -164,6 +164,7 @@ body {
     }
 }
 
+/* Media Query pour la version mobile */
 @media (max-width: 768px) {
     body {
         min-height: 100dvh;
