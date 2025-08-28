@@ -11,6 +11,7 @@ body {
     font-family: 'Roboto', sans-serif;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    /* Voile noir pour rendre la page plus lisible */
     background-color: rgba(0, 0, 0, 0.4);
 }
 
@@ -56,29 +57,10 @@ body {
     width: 100%;
 }
 
-.container-elements::before,
-.container-elements::after {
-    content: '';
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    background-image: url('moule-frite.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    z-index: 1;
-}
-
-.container-elements::before {
-    left: -60px;
-    top: 50%;
-    transform: translateY(-50%) rotate(-15deg);
-}
-
-.container-elements::after {
-    right: -60px;
-    top: 50%;
-    transform: translateY(-50%) rotate(15deg);
+.moule-frite {
+    width: 250px; /* Ajuste la taille des moules-frites pour qu'elles s'affichent bien */
+    height: auto;
+    margin: 0 20px;
 }
 
 .boomer {
@@ -86,13 +68,11 @@ body {
     height: auto;
     border-radius: 50%;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
-    /* Ne s'anime que si le JavaScript supprime la classe paused */
     filter: grayscale(100%);
 }
 
 .boomer.paused {
     filter: grayscale(100%);
-    /* Règle qui empêche l'animation */
     animation: none !important;
 }
 
@@ -134,17 +114,7 @@ body {
         font-size: 1.8em;
     }
 
-    .container-elements::before {
-        left: -30px;
-        top: 20%;
-        width: 80px;
-        height: 80px;
-    }
-
-    .container-elements::after {
-        right: -30px;
-        top: 80%;
-        width: 80px;
-        height: 80px;
+    .moule-frite {
+        width: 150px;
     }
 }
