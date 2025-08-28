@@ -97,6 +97,7 @@ body {
     display: inline-block;
     animation: paroles-defilement 90s linear 25s infinite;
     animation-play-state: paused;
+    transform: translateX(100%); /* Assurez-vous que le texte est hors de l'écran par défaut */
 }
 
 @keyframes paroles-defilement {
