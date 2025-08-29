@@ -95,7 +95,7 @@ body {
     text-shadow: 1px 1px 2px black;
     white-space: nowrap;
     display: inline-block;
-    animation: paroles-defilement 240s linear infinite; /* Durée ajustée pour PC */
+    animation: paroles-defilement 240s linear infinite;
     animation-play-state: paused;
     transform: translateX(100%);
 }
@@ -139,7 +139,7 @@ body {
     margin-left: 30px;
 }
 
-.play-button {
+.play-button, .pause-button {
     width: 200px;
     height: 200px;
     cursor: pointer;
@@ -151,7 +151,7 @@ body {
     background-color: transparent;
 }
 
-.play-button:hover {
+.play-button:hover, .pause-button:hover {
     transform: scale(1.08);
     box-shadow: 0 0 40px rgba(255, 51, 51, 1);
 }
@@ -180,7 +180,7 @@ body {
         width: 120px;
         margin: 15px 0;
     }
-    .play-button {
+    .play-button, .pause-button {
         width: 150px;
         height: 150px;
         margin-top: 20px;
@@ -199,13 +199,13 @@ body {
         font-size: 1em;
     }
     .paroles-container {
-        width: 95%; /* Élargit le conteneur pour plus de lisibilité */
+        width: 95%;
         padding: 10px 15px;
         border-radius: 10px;
     }
     .paroles-scroll {
         font-size: 1em;
-        animation-duration: 480s; /* Durée encore plus longue pour mobile */
-        animation-delay: 0s; /* Supprime le délai */
+        animation-duration: 480s;
+        animation-delay: 0s; /* Délai supprimé */
     }
 }
