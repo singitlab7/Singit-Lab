@@ -95,9 +95,9 @@ body {
     text-shadow: 1px 1px 2px black;
     white-space: nowrap;
     display: inline-block;
-    animation: paroles-defilement 90s linear 25s infinite;
+    animation: paroles-defilement 120s linear 25s infinite;
     animation-play-state: paused;
-    transform: translateX(100%); /* Assurez-vous que le texte est hors de l'écran par défaut */
+    transform: translateX(100%);
 }
 
 @keyframes paroles-defilement {
@@ -165,6 +165,7 @@ body {
     }
 }
 
+/* Media Query pour la version mobile */
 @media (max-width: 768px) {
     body {
         min-height: 100dvh;
@@ -205,7 +206,7 @@ body {
     }
     .paroles-scroll {
         font-size: 1em;
-        animation-duration: 180s;
+        animation-duration: 240s;
         animation-delay: 25s;
     }
 }
