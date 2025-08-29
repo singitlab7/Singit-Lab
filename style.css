@@ -95,7 +95,7 @@ body {
     text-shadow: 1px 1px 2px black;
     white-space: nowrap;
     display: inline-block;
-    animation: paroles-defilement 120s linear 25s infinite;
+    animation: paroles-defilement 240s linear infinite; /* Durée ajustée pour PC */
     animation-play-state: paused;
     transform: translateX(100%);
 }
@@ -165,7 +165,6 @@ body {
     }
 }
 
-/* Media Query pour la version mobile */
 @media (max-width: 768px) {
     body {
         min-height: 100dvh;
@@ -200,13 +199,13 @@ body {
         font-size: 1em;
     }
     .paroles-container {
-        width: 95%;
+        width: 95%; /* Élargit le conteneur pour plus de lisibilité */
         padding: 10px 15px;
         border-radius: 10px;
     }
     .paroles-scroll {
         font-size: 1em;
-        animation-duration: 240s;
-        animation-delay: 25s;
+        animation-duration: 480s; /* Durée encore plus longue pour mobile */
+        animation-delay: 0s; /* Supprime le délai */
     }
 }
