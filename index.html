@@ -35,7 +35,6 @@
             <img src="bobine.gif" alt="Boomer 1" class="boomer boomer-left paused">
             
             <img id="playButton" class="play-button" src="play-button.png" alt="Bouton Play">
-            <img id="pauseButton" class="pause-button" src="pause-button.png" alt="Bouton Pause">
             
             <img src="bobine.gif" alt="Boomer 2" class="boomer boomer-right paused">
         </div>
@@ -44,7 +43,6 @@
     <script>
         const audio = document.getElementById('hymneAudio');
         const playButton = document.getElementById('playButton');
-        const pauseButton = document.getElementById('pauseButton');
         const boomers = document.querySelectorAll('.boomer');
         const paroles = document.getElementById('paroles');
 
@@ -53,11 +51,7 @@
                 audio.play();
                 boomers.forEach(boomer => boomer.classList.remove('paused'));
                 paroles.style.animationPlayState = 'running';
-            }
-        });
-
-        pauseButton.addEventListener('click', () => {
-            if (!audio.paused) {
+            } else {
                 audio.pause();
                 boomers.forEach(boomer => boomer.classList.add('paused'));
                 paroles.style.animationPlayState = 'paused';
