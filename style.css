@@ -40,12 +40,13 @@ body {
 }
 
 .logo {
-    width: 200px;
+    width: 100px;
     height: auto;
     border: 2px solid #fff;
     border-radius: 50%;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     z-index: 2; 
+    margin-bottom: 5px;
 }
 
 .titre-hymne {
@@ -68,7 +69,7 @@ body {
 .contact-email {
     margin-top: 5px;
     margin-bottom: 5px;
-    font-size: 1.2em;
+    font-size: 1.0em;
     font-weight: bold;
     color: rgba(255, 255, 255, 0.8);
     z-index: 2;
@@ -84,28 +85,19 @@ body {
     margin-top: 15px;
     margin-bottom: 30px;
     text-align: center;
-    overflow: hidden;
+    overflow-y: auto;
     z-index: 1;
+    max-height: 250px;
 }
 
-.paroles-scroll {
+.paroles-fixe {
     font-size: 1.2em;
     font-weight: bold;
     color: yellow;
     text-shadow: 1px 1px 2px black;
-    white-space: nowrap;
-    display: inline-block;
-    animation: paroles-defilement 90s linear 25s infinite;
-    animation-play-state: paused;
-}
-
-@keyframes paroles-defilement {
-    0% {
-        transform: translateX(100%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
+    white-space: normal;
+    text-align: center;
+    display: block;
 }
 
 .container-elements {
@@ -131,16 +123,16 @@ body {
 }
 
 .boomer-left {
-    margin-right: 30px;
+    margin-right: 15px;
 }
 
 .boomer-right {
-    margin-left: 30px;
+    margin-left: 15px;
 }
 
 .play-button {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     cursor: pointer;
     border-radius: 50%;
     border: 5px solid white;
@@ -148,6 +140,7 @@ body {
     transition: transform 0.2s, box-shadow 0.2s;
     z-index: 2;
     background-color: transparent;
+    margin: 0 5px;
 }
 
 .play-button:hover {
@@ -172,39 +165,37 @@ body {
         padding: 10px;
     }
     .container-elements {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
         margin-top: 20px;
     }
     .boomer {
-        width: 120px;
-        margin: 15px 0;
+        width: 80px;
+        margin: 10px;
     }
     .play-button {
-        width: 150px;
-        height: 150px;
-        margin-top: 20px;
+        width: 80px;
+        height: 80px;
+        margin: 10px;
     }
     .logo {
-        width: 150px;
+        width: 80px;
     }
     .titre-hymne {
-        font-size: 2em;
-        margin-top: 20px;
-        margin-bottom: 5px;
+        font-size: 1.8em;
+        margin-top: 15px;
     }
     .contact-email {
-        margin-top: 5px;
-        margin-bottom: 5px;
-        font-size: 1em;
+        font-size: 0.9em;
     }
     .paroles-container {
         width: 95%;
-        padding: 10px 15px;
+        padding: 10px;
         border-radius: 10px;
+        max-height: 200px;
     }
-    .paroles-scroll {
-        font-size: 1em;
-        animation-duration: 180s;
-        animation-delay: 25s;
+    .paroles-fixe {
+        font-size: 0.9em;
     }
 }
