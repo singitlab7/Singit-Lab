@@ -19,15 +19,21 @@
     <div class="main-content">
         <div class="header">
             <img src="logo-singit.jpg" alt="Logo SingIt Lab" class="logo">
+            <p class="contact-email">Contact : Singitlab7Gmail.com</p>
         </div>
         
         <h1 class="titre-hymne">Hymne<br>Braderie de Lille<br>2025</h1>
         
-        <p class="contact-email">Contact : Singitlab7@Gmail.com</p>
-
         <div class="paroles-container">
-            <div id="paroles" class="paroles-scroll">
-                🎵 Refrain : Ce week-end à Lille c'est la braderie, On chine, on rigole, on danse on rit, On chante on trinque toute la nuit, à la braderie tout est permis ! 🎵 Couplet 1 : Comme une envie de moule, Ok vas-y ça roule, On vient de sortir du bar, Je prends déjà tout le trottoir. Elle m'a tendu sa frite, je lui ai sorti "magik!" j'ai repris un ricard, Et repeint tout le trottoir. 🎵 Refrain : Ce week-end à Lille c'est la braderie, On chine, on rigole, on danse on rit, On chante on trinque toute la nuit, à la braderie tout est permis ! 🎵 Couplet 2 : Comme une envie de ronfler, Ok on va s'coucher, On vient de sortir du bar, faut y aller il est tard, je sentais trop la frite, Du coup j’ai pris la fuite, et j'ai repris ma route, à pied jusqu'à Hazbrouck...ouille!! 🎵 Refrain (final a capela) : Ce week-end à Lille c'est la braderie, On chine, on rigole, on danse on rit, On va trinquer toute la nuit, c'est ça le weekend de la braderie 🎵 Accapella : ooohlala...ohlalahooo! ooohlala...ohlalahooo! ooohlala...ohlalahooo! ooohlala...ohlalahooo! 🎵 Final musical : ooohlala...ohlalahooo! ooohlala...ohlalahooo! ooohlala...ohlalahooo! ooohlala...ohlalahooo! 🎵
+            <div id="paroles">
+                <span class="paroles-fixe">
+                    🎵 Intro Refrain : À Lille ce week-end c'est la braderie, des moules, des frites on a envie, des fripes qui moulent ça c'est promis ! car ce week-end c'est la braderie <br><br>
+                    🎵 Couplet 1 : Comme une envie de moules, OK vas-y déboule, on rentre dans le bar, un petit verre au comptoir. Elle m'a tendu ma frite, je lui ai sorti "magiiiik!!" (delay fx), on est sortis du bar vrillés sur les trottoirs <br><br>
+                    🎵 Refrain : À Lille ce week-end c'est la braderie, des moules, des frites on a envie, des fripes qui moulent ça c'est promis ! car ce week-end c'est la braderie ! <br><br>
+                    🎵 Couplet 2 : Comme une envie de ronfler, allez on va se coucher. On sort encore du bar, faut y aller il est tard. Je sentais trop la frite, du coup j'ai pris la fuite, et j'ai repris ma route à pied jusqu'à Hazebrouck... ouille ! <br><br>
+                    🎵 Refrain : À Lille ce week-end c'est la braderie, des moules, des frites on a envie, des fripes qui moulent ça c'est promis ! car ce week-end c'est la braderie ! À Lille ce week-end c'est la braderie, des moules, des frites sur un air de vie, des fripes qui moulent ça c'est promis ! c'est ça le week-end de la braderie !... ouiii ! <br><br>
+                    🎵 Outro : Oohlala... ohlalahooo ! Oohlala... ohlalahooo ! Oohlala... ohlalahooo ! Oohlala... ohlalahooo ! Oohlala... ohlalahooo ! Oohlala... ohlalahooo ! Oohlala... ohlalahooo ! Oohlala... ohlalahooo !
+                </span>
             </div>
         </div>
 
@@ -44,18 +50,19 @@
         const audio = document.getElementById('hymneAudio');
         const playButton = document.getElementById('playButton');
         const boomers = document.querySelectorAll('.boomer');
-        const paroles = document.getElementById('paroles');
+        let isPlaying = false;
 
         playButton.addEventListener('click', () => {
-            if (audio.paused) {
-                audio.play();
-                boomers.forEach(boomer => boomer.classList.remove('paused'));
-                paroles.style.animationPlayState = 'running';
-            } else {
+            if (isPlaying) {
                 audio.pause();
                 boomers.forEach(boomer => boomer.classList.add('paused'));
-                paroles.style.animationPlayState = 'paused';
+                playButton.src = "play-button.png";
+            } else {
+                audio.play();
+                boomers.forEach(boomer => boomer.classList.remove('paused'));
+                playButton.src = "pause-button.png";
             }
+            isPlaying = !isPlaying;
         });
     </script>
 
