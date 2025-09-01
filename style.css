@@ -101,6 +101,13 @@ body {
     display: block;
 }
 
+.icone-moule-frite {
+    height: 1.4em;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+
 .container-elements {
     display: flex;
     align-items: center;
@@ -198,5 +205,9 @@ body {
     }
     .paroles-fixe {
         font-size: 0.9em;
+    }
+    .icone-moule-frite {
+        height: 1.2em;
+        margin-right: 3px;
     }
 }
