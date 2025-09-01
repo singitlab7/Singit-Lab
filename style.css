@@ -1,201 +1,69 @@
-html, body {
-    height: 100%;
-    margin: 0;
-}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hymne Braderie de Lille 2025 - SingIt Lab!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
 
-body {
-    background-image: url('gazon.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Roboto', sans-serif;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    background-color: rgba(0, 0, 0, 0.4);
-    min-height: 100dvh;
-}
+    <audio id="hymneAudio">
+        <source src="hymne.mp3" type="audio/mpeg">
+        Votre navigateur ne supporte pas l'élément audio.
+    </audio>
 
-.main-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 800px;
-    height: 100%;
-    position: relative;
-    padding: 20px;
-    box-sizing: border-box;
-}
+    <div class="main-content">
+        <div class="header">
+            <img src="logo-singit.jpg" alt="Logo SingIt Lab" class="logo">
+            <p class="contact-email">Contact : Singitlab7Gmail.com</p>
+        </div>
+        
+        <h1 class="titre-hymne">Hymne<br>Braderie de Lille<br>2025</h1>
+        
+        <div class="paroles-container">
+            <div id="paroles">
+                <span class="paroles-fixe">
+                    🎵 Intro Refrain : À Lille ce week-end c'est la braderie, des moules, des frites on a envie, des fripes qui moulent ça c'est promis ! car ce week-end c'est la braderie <br><br>
+                    🎵 Couplet 1 : Comme une envie de moules, OK vas-y déboule, on rentre dans le bar, un petit verre au comptoir. Elle m'a tendu sa frite, je lui ai sorti "magiiiik!!" (delay fx), on est sortis du bar vrillés sur les trottoirs <br><br>
+                    🎵 Refrain : À Lille ce week-end c'est la braderie, des moules, des frites on a envie, des fripes qui moulent ça c'est promis ! car ce week-end c'est la braderie ! <br><br>
+                    🎵 Couplet 2 : Comme une envie de ronfler, allez on va se coucher. On sort encore du bar, faut y aller il est tard. Je sentais trop la frite, du coup j'ai pris la fuite, et j'ai repris ma route à pied jusqu'à Hazebrouck... ouille ! <br><br>
+                    🎵 Outro : Oohlala... ohlalahooo ! Oohlala... ohlalahooo ! Oohlala... ohlalahooo ! Oohlala... ohlalahooo ! Oohlala... ohlalahooo ! Oohlala... ohlalahooo ! Oohlala... ohlalahooo ! Oohlala... ohlalahooo !
+                </span>
+            </div>
+        </div>
 
-.header {
-    margin-bottom: 20px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+        <div class="container-elements">
+            <img src="bobine.gif" alt="Boomer 1" class="boomer boomer-left paused">
+            
+            <img id="playButton" class="play-button" src="play-button.png" alt="Bouton Play">
+            
+            <img src="bobine.gif" alt="Boomer 2" class="boomer boomer-right paused">
+        </div>
+    </div>
 
-.logo {
-    width: 100px;
-    height: auto;
-    border: 2px solid #fff;
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-    z-index: 2; 
-    margin-bottom: 5px;
-}
+    <script>
+        const audio = document.getElementById('hymneAudio');
+        const playButton = document.getElementById('playButton');
+        const boomers = document.querySelectorAll('.boomer');
+        let isPlaying = false;
 
-.titre-hymne {
-    font-size: 2.8em;
-    font-weight: bold;
-    line-height: 1.2;
-    margin-top: 30px;
-    margin-bottom: 5px;
-    letter-spacing: 2px;
-    position: relative;
-    text-align: center;
-    z-index: 2;
-}
+        playButton.addEventListener('click', () => {
+            if (isPlaying) {
+                audio.pause();
+                boomers.forEach(boomer => boomer.classList.add('paused'));
+                playButton.src = "play-button.png";
+            } else {
+                audio.play();
+                boomers.forEach(boomer => boomer.classList.remove('paused'));
+                playButton.src = "pause-button.png";
+            }
+            isPlaying = !isPlaying;
+        });
+    </script>
 
-.titre-hymne::before,
-.titre-hymne::after {
-    display: none;
-}
-
-.contact-email {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    font-size: 1.0em;
-    font-weight: bold;
-    color: rgba(255, 255, 255, 0.8);
-    z-index: 2;
-}
-
-.paroles-container {
-    width: 80%;
-    background-color: rgba(60, 60, 60, 0.7);
-    border: 3px solid #b0b0b0;
-    border-radius: 15px;
-    padding: 15px 20px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    margin-top: 15px;
-    margin-bottom: 30px;
-    text-align: center;
-    overflow-y: auto;
-    z-index: 1;
-    max-height: 250px;
-}
-
-.paroles-fixe {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: yellow;
-    text-shadow: 1px 1px 2px black;
-    white-space: normal;
-    text-align: center;
-    display: block;
-}
-
-.container-elements {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    width: 100%;
-    margin-top: 30px;
-    z-index: 2;
-}
-
-.boomer {
-    width: 180px;
-    height: auto;
-    border-radius: 50%;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-    animation: boomer-bounce 0.5s infinite alternate;
-}
-
-.boomer.paused {
-    animation-play-state: paused;
-}
-
-.boomer-left {
-    margin-right: 15px;
-}
-
-.boomer-right {
-    margin-left: 15px;
-}
-
-.play-button {
-    width: 100px;
-    height: 100px;
-    cursor: pointer;
-    border-radius: 50%;
-    border: 5px solid white;
-    box-shadow: 0 0 25px rgba(255, 51, 51, 0.9);
-    transition: transform 0.2s, box-shadow 0.2s;
-    z-index: 2;
-    background-color: transparent;
-    margin: 0 5px;
-}
-
-.play-button:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 40px rgba(255, 51, 51, 1);
-}
-
-@keyframes boomer-bounce {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(-5px);
-    }
-}
-
-@media (max-width: 768px) {
-    body {
-        min-height: 100dvh;
-    }
-    .main-content {
-        padding: 10px;
-    }
-    .container-elements {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-top: 20px;
-    }
-    .boomer {
-        width: 80px;
-        margin: 10px;
-    }
-    .play-button {
-        width: 80px;
-        height: 80px;
-        margin: 10px;
-    }
-    .logo {
-        width: 80px;
-    }
-    .titre-hymne {
-        font-size: 1.8em;
-        margin-top: 15px;
-    }
-    .contact-email {
-        font-size: 0.9em;
-    }
-    .paroles-container {
-        width: 95%;
-        padding: 10px;
-        border-radius: 10px;
-        max-height: 200px;
-    }
-    .paroles-fixe {
-        font-size: 0.9em;
-    }
-}
+</body>
+</html>
