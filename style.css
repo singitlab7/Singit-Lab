@@ -41,7 +41,7 @@ body {
 }
 
 .logo {
-    width: 170px;
+    width: 200px;
     height: auto;
     border: 2px solid #fff;
     border-radius: 50%;
@@ -211,5 +211,6 @@ body {
         margin-right: 3px;
     }
 }
+
 
 
