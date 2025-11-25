@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Singit Lab - CMED Hymne</title>
+    <title>Clubmed Hymne - 50 is my number</title>
     <!-- On importe une police de caractères sympa depuis Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -16,12 +16,11 @@
         }
 
         body {
-            /* === CORRECTION FINALE ICI === */
             background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('logo-clubmed.jpeg.jpg');
-            background-size: cover; /* L'image couvre tout l'écran */
-            background-position: center center; /* L'image est centrée */
-            background-repeat: no-repeat; /* L'image ne se répète pas */
-            background-attachment: fixed; /* L'image reste fixe au défilement */
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             
             font-family: 'Poppins', sans-serif;
             display: flex;
@@ -33,24 +32,35 @@
             box-sizing: border-box;
         }
 
+        .top-right-logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 150px;
+        }
+
         .player-card {
-            background-color: rgba(255, 255, 255, 0.95); /* Fond de la carte légèrement transparent */
+            background-color: rgba(255, 255, 255, 0.95);
             border-radius: 15px;
-            padding: 30px 40px;
+            padding: 40px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             text-align: center;
             max-width: 350px;
             width: 100%;
         }
 
-        .logo-container img {
-            max-width: 200px;
-            margin-bottom: 20px;
+        /* NOUVEAU STYLE : Nom du groupe */
+        .group-name {
+            color: var(--couleur-texte);
+            font-size: 1em; /* Plus petit */
+            font-weight: 500; /* Moins gras */
+            margin-bottom: 5px; /* Petit espace avec le titre */
         }
 
-        .track-info {
+        /* NOUVEAU STYLE : Titre du morceau */
+        .track-title {
             color: var(--couleur-texte);
-            font-size: 1.2em;
+            font-size: 1.5em; /* Plus grand */
             font-weight: 700;
             margin-bottom: 25px;
         }
@@ -83,16 +93,15 @@
 </head>
 <body>
 
+    <img src="logo-singit.jpg.jpg" alt="Logo de Singit Lab" class="top-right-logo">
+
     <main class="player-card">
         
-        <div class="logo-container">
-            <!-- Ce logo reste celui de Singit Lab sur la carte -->
-            <img src="logo-singit.jpg.jpg" alt="Logo de Singit Lab">
-        </div>
+        <!-- NOM DU GROUPE AJOUTÉ ICI -->
+        <div class="group-name">Clubmed Hymne</div>
         
-        <div class="track-info">
-            Hymne
-        </div>
+        <!-- TITRE DU MORCEAU MODIFIÉ ICI -->
+        <div class="track-title">50 is my number</div>
 
         <audio id="ma-demo" src="cmed-hymne.mp3"></audio>
 
