@@ -3,89 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clubmed Hymne - 50 is my number</title>
-    <!-- On importe une police de caractères sympa depuis Google Fonts -->
+    <title>Clubmed Hymne Project - 50 is my number</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
 
     <style>
-        :root {
-            --couleur-texte: #1D1E18;
-            --couleur-accent: #E63946;
-        }
-
         body {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('logo-clubmed.jpg');
-            background-size: cover;
-            background-position: center center;
+            /* On utilise votre nouvelle image */
+            background-image: url('logo-cmed.jpg');
+            background-size: cover; /* L'image couvre tout l'écran sans se déformer */
+            background-position: center center; /* L'image est parfaitement centrée */
             background-repeat: no-repeat;
-            background-attachment: fixed;
+            background-attachment: fixed; /* L'image reste fixe quand on scrolle */
             
-            font-family: 'Poppins', sans-serif;
+            /* On garde la mise en page centrée pour le bouton */
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            padding: 20px;
-            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
 
-        .top-right-logo {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 150px;
-        }
-
-        .player-card {
-            background-color: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            max-width: 350px;
-            width: 100%;
-        }
-
-        /* NOUVEAU STYLE : Nom du groupe */
-        .group-name {
-            color: var(--couleur-texte);
-            font-size: 1em; /* Plus petit */
-            font-weight: 500; /* Moins gras */
-            margin-bottom: 5px; /* Petit espace avec le titre */
-        }
-
-        /* NOUVEAU STYLE : Titre du morceau */
-        .track-title {
-            color: var(--couleur-texte);
-            font-size: 1.5em; /* Plus grand */
-            font-weight: 700;
-            margin-bottom: 25px;
-        }
-
-        .player-controls button {
-            background-color: var(--couleur-texte);
-            color: white;
+        /* Style du bouton Play/Pause, conçu pour être bien visible */
+        #play-pause-bouton {
+            background-color: rgba(255, 255, 255, 0.8); /* Fond blanc semi-transparent pour la lisibilité */
+            color: #1D1E18; /* Icône noire */
             border: none;
-            border-radius: 50%;
-            width: 70px;
-            height: 70px;
-            font-size: 2em;
+            border-radius: 50%; /* Bouton parfaitement rond */
+            width: 100px; /* Un bouton plus grand pour être l'élément central */
+            height: 100px;
+            font-size: 3em; /* Icône plus grande */
             cursor: pointer;
-            margin: 0 10px;
-            transition: background-color 0.2s ease, transform 0.2s ease;
+            transition: all 0.2s ease;
             display: inline-flex;
             justify-content: center;
             align-items: center;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3); /* Ombre portée pour le faire ressortir */
         }
 
-        .player-controls button:hover {
-            background-color: var(--couleur-accent);
-            transform: scale(1.1);
+        #play-pause-bouton:hover {
+            transform: scale(1.1); /* Effet de grossissement au survol */
+            background-color: rgba(255, 255, 255, 1); /* Devient complètement blanc au survol */
         }
 
+        /* La balise audio reste cachée */
         #ma-demo {
             display: none;
         }
@@ -93,23 +56,11 @@
 </head>
 <body>
 
-    <img src="logo-singit.jpg.jpg" alt="Logo de Singit Lab" class="top-right-logo">
-
-    <main class="player-card">
-        
-        <!-- NOM DU GROUPE AJOUTÉ ICI -->
-        <div class="group-name">Clubmed Hymne project</div>
-        
-        <!-- TITRE DU MORCEAU MODIFIÉ ICI -->
-        <div class="track-title">50 is my number</div>
-
-        <audio id="ma-demo" src="cmed-hymne.mp3"></audio>
-
-        <div class="player-controls">
-            <button id="play-pause-bouton">▶</button>
-        </div>
-
-    </main>
+    <!-- Il ne reste plus QUE le bouton de lecture -->
+    <button id="play-pause-bouton">▶</button>
+    
+    <!-- Et le fichier audio invisible -->
+    <audio id="ma-demo" src="cmed-hymne.mp3"></audio>
 
     <script>
         const lecteurAudio = document.getElementById('ma-demo');
@@ -131,4 +82,6 @@
     </script>
 
 </body>
-</html>
+</html>```
+
+Une fois que vous aurez mis à jour le fichier, attendez 2-3 minutes, faites un **rafraîchissement forcé (`Ctrl+F5`)** et vous aurez la version la plus épurée et la plus immersive de votre page.
