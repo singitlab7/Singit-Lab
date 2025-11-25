@@ -3,67 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hymne Braderie de Lille 2025 - SingIt Lab!</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Singit Lab - CMED Hymne</title>
+    <!-- On importe une police de caractères sympa depuis Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --couleur-texte: #1D1E18;
+            --couleur-accent: #E63946;
+        }
+
+        body {
+            /* === MODIFICATION ICI : Fond d'écran avec le logo Club Med === */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('logo-clubmed.jpeg');
+            background-size: cover; /* L'image couvre tout l'écran */
+            background-position: center center; /* L'image est centrée */
+            background-repeat: no-repeat; /* L'image ne se répète pas */
+            background-attachment: fixed; /* L'image reste fixe au défilement */
+            
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .player-card {
+            background-color: rgba(255, 255, 255, 0.95); /* Fond de la carte légèrement transparent */
+            border-radius: 15px;
+            padding: 30px 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 350px;
+            width: 100%;
+        }
+
+        .logo-container img {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .track-info {
+            color: var(--couleur-texte);
+            font-size: 1.2em;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .player-controls button {
+            background-color: var(--couleur-texte);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            font-size: 2em;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .player-controls button:hover {
+            background-color: var(--couleur-accent);
+            transform: scale(1.1);
+        }
+
+        #ma-demo {
+            display: none;
+        }
+    </style>
 </head>
 <body>
 
-    <audio id="hymneAudio">
-        <source src="hymne.mp3" type="audio/mpeg">
-        Votre navigateur ne supporte pas l'élément audio.
-    </audio>
-
-    <div class="main-content">
-        <div class="header">
-            <img src="logo-singit.jpeg" alt="Logo SingIt Lab" class="logo">
-            <p class="contact-email">Contact : Singitlab7@Gmail.com</p>
-            <!-- LIGNE AJOUTÉE POUR LE LIEN FACEBOOK -->
-            <a href="https://www.facebook.com/profile.php?id=61580447635623" target="_blank" class="facebook-link">Suivez-nous sur Facebook</a>
+    <main class="player-card">
+        
+        <div class="logo-container">
+            <!-- Ce logo reste celui de Singit Lab sur la carte -->
+            <img src="logo-singit.jpg.jpg" alt="Logo de Singit Lab">
         </div>
         
-        <h1 class="titre-hymne">BRADERIE<br>HYMNE DISCO-MOULE!<br>2025</h1>
-        
-        <div class="paroles-container">
-            <div id="paroles">
-                <span class="paroles-fixe">
-                    <img src="moule-frite-danse.gif" alt="Moule-Frite qui danse" class="icone-moule-frite"> Intro Refrain : À Lille ce week-end c'est la braderie,<br>des moules, des frites on a envie,<br>des fripes qui moulent ça c'est promis !<br>car ce week-end c'est la braderie <br><br>
-                    <img src="moule-frite-danse.gif" alt="Moule-Frite qui danse" class="icone-moule-frite"> Couplet 1 : Comme une envie de moules, ok vas-y ça roule,<br>on rentre dans le bar, un petit verre au comptoir.<br>Elle m'a tendu ma frite, je lui ai sorti "magiiiik!!",<br>on est sortis du bar pour reprendre le trottoir <br><br>
-                    <img src="moule-frite-danse.gif" alt="Moule-Frite qui danse" class="icone-moule-frite"> Refrain : À Lille ce week-end c'est la braderie,<br>des moules, des frites on a envie,<br>des fripes qui moulent ça c'est promis !<br>car ce week-end c'est la braderie ! <br><br>
-                    <img src="moule-frite-danse.gif" alt="Moule-Frite qui danse" class="icone-moule-frite"> Couplet 2 : Comme une envie de ronfler, allez on va se coucher.<br>On sort enfin du bar, faut y aller il est tard.<br>Je sentais trop la frite, du coup j'ai pris la fuite,<br>et j'ai repris ma route à pied jusqu'à Hazebrouck... ouiiii ! <br><br>
-                    <img src="moule-frite-danse.gif" alt="Moule-Frite qui danse" class="icone-moule-frite"> Outro : Oohlala... ohlalahooo ! Oohlala... ohlalahooo ! Oohlala... ohlalahooo ! Oohlala... ohlalahooo ! Oohlala... ohlalahooo ! Oohlala... ohlalahooo ! Oohlala... ohlalahooo ! Oohlala... ohlalahooo !
-                </span>
-            </div>
+        <div class="track-info">
+            Hymne
         </div>
 
-        <div class="container-elements">
-            <img src="bobine.gif" alt="Boomer 1" class="boomer boomer-left paused">
-            
-            <img id="playButton" class="play-button" src="play-button.png" alt="Bouton Play">
-            
-            <img src="bobine.gif" alt="Boomer 2" class="boomer boomer-right paused">
+        <audio id="ma-demo" src="cmed-hymne.mp3"></audio>
+
+        <div class="player-controls">
+            <button id="play-pause-bouton">▶</button>
         </div>
-    </div>
+
+    </main>
 
     <script>
-        const audio = document.getElementById('hymneAudio');
-        const playButton = document.getElementById('playButton');
-        const boomers = document.querySelectorAll('.boomer');
-        let isPlaying = false;
+        const lecteurAudio = document.getElementById('ma-demo');
+        const boutonPlayPause = document.getElementById('play-pause-bouton');
 
-        playButton.addEventListener('click', () => {
-            if (isPlaying) {
-                audio.pause();
-                boomers.forEach(boomer => boomer.classList.add('paused'));
-                playButton.src = "play-button.png";
+        boutonPlayPause.addEventListener('click', function() {
+            if (lecteurAudio.paused) {
+                lecteurAudio.play();
+                boutonPlayPause.innerHTML = '❚❚';
             } else {
-                audio.play();
-                boomers.forEach(boomer => boomer.classList.remove('paused'));
-                playButton.src = "pause-button.png";
+                lecteurAudio.pause();
+                boutonPlayPause.innerHTML = '▶';
             }
-            isPlaying = !isPlaying;
+        });
+        
+        lecteurAudio.addEventListener('ended', function() {
+            boutonPlayPause.innerHTML = '▶';
         });
     </script>
 
