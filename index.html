@@ -10,14 +10,13 @@
 
     <style>
         body {
-            /* === CORRECTION FINALE ICI : Le nom du fichier est maintenant correct === */
             background-image: url('logo-clubmed.jpg');
-            background-size: cover; /* L'image couvre tout l'écran sans se déformer */
-            background-position: center center; /* L'image est parfaitement centrée */
+            background-size: contain; 
+            background-color: #000; 
+            background-position: center center;
             background-repeat: no-repeat;
-            background-attachment: fixed; /* L'image reste fixe quand on scrolle */
+            background-attachment: fixed;
             
-            /* On garde la mise en page centrée pour le bouton */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -26,13 +25,20 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        /* Style du bouton Play/Pause, conçu pour être bien visible */
+        /* Style du bouton Play/Pause, avec la correction */
         #play-pause-bouton {
-            background-color: rgba(255, 255, 255, 0.8); /* Fond blanc semi-transparent pour la lisibilité */
-            color: #1D1E18; /* Icône noire */
+            /* === CORRECTION ICI : On force le bouton à être au-dessus === */
+            position: relative; /* On active le positionnement */
+            z-index: 10; /* On le place sur une couche supérieure (n'importe quel chiffre > 0 suffit) */
+
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #1D1E18;
             border: none;
-            border-radius: 50%; /* Bouton parfaitement rond */
-            width: 100px; /* Un bouton plus grand pour être l'élément central */
+            border-radius: 50%;
+            width: 100px;
             height: 100px;
-            font-size: 3em; /* Icône plus grande */
-            cursor: p
+            font-size: 3em;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            justify-content: cente
