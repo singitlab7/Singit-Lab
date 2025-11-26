@@ -10,8 +10,8 @@
 
     <style>
         body {
-            /* On utilise votre nouvelle image */
-            background-image: url('logo-cmed.jpg');
+            /* === CORRECTION FINALE ICI : Le nom du fichier est maintenant correct === */
+            background-image: url('logo-clubmed.jpg');
             background-size: cover; /* L'image couvre tout l'écran sans se déformer */
             background-position: center center; /* L'image est parfaitement centrée */
             background-repeat: no-repeat;
@@ -35,51 +35,4 @@
             width: 100px; /* Un bouton plus grand pour être l'élément central */
             height: 100px;
             font-size: 3em; /* Icône plus grande */
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3); /* Ombre portée pour le faire ressortir */
-        }
-
-        #play-pause-bouton:hover {
-            transform: scale(1.1); /* Effet de grossissement au survol */
-            background-color: rgba(255, 255, 255, 1); /* Devient complètement blanc au survol */
-        }
-
-        /* La balise audio reste cachée */
-        #ma-demo {
-            display: none;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Il ne reste plus QUE le bouton de lecture -->
-    <button id="play-pause-bouton">▶</button>
-    
-    <!-- Et le fichier audio invisible -->
-    <audio id="ma-demo" src="cmed-hymne.mp3"></audio>
-
-    <script>
-        const lecteurAudio = document.getElementById('ma-demo');
-        const boutonPlayPause = document.getElementById('play-pause-bouton');
-
-        boutonPlayPause.addEventListener('click', function() {
-            if (lecteurAudio.paused) {
-                lecteurAudio.play();
-                boutonPlayPause.innerHTML = '❚❚';
-            } else {
-                lecteurAudio.pause();
-                boutonPlayPause.innerHTML = '▶';
-            }
-        });
-        
-        lecteurAudio.addEventListener('ended', function() {
-            boutonPlayPause.innerHTML = '▶';
-        });
-    </script>
-
-</body>
-</html>
+            cursor: p
