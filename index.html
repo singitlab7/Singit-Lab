@@ -5,32 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clubmed Hymne Project - 50 is my number</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
 
     <style>
-        body {
+        /* On enlève toute marge par défaut */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden; /* Empêche les barres de défilement */
+        }
+
+        /* Conteneur pour l'image de fond */
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-image: url('logo-clubmed.jpg');
-            background-size: contain; 
-            background-color: #000; 
+            background-size: contain;
+            background-color: #000;
             background-position: center center;
             background-repeat: no-repeat;
-            background-attachment: fixed;
-            
+        }
+
+        /* Conteneur pour les contrôles, placé PAR-DESSUS le fond */
+        .controls-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
+            z-index: 10; /* Assure qu'il est au-dessus du fond */
         }
-
-        /* Style du bouton Play/Pause, avec la correction */
+        
+        /* Style du bouton Play/Pause */
         #play-pause-bouton {
-            /* === CORRECTION ICI : On force le bouton à être au-dessus === */
-            position: relative; /* On active le positionnement */
-            z-index: 10; /* On le place sur une couche supérieure (n'importe quel chiffre > 0 suffit) */
-
             background-color: rgba(255, 255, 255, 0.8);
             color: #1D1E18;
             border: none;
@@ -41,4 +57,51 @@
             cursor: pointer;
             transition: all 0.2s ease;
             display: inline-flex;
-            justify-content: cente
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        #play-pause-bouton:hover {
+            transform: scale(1.1);
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        /* La balise audio reste cachée */
+        #ma-demo {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- On sépare le fond et les contrôles en deux couches distinctes -->
+    <div class="background-container"></div>
+    
+    <div class="controls-container">
+        <button id="play-pause-bouton">▶</button>
+    </div>
+    
+    <audio id="ma-demo" src="cmed-hymne.mp3"></audio>
+
+    <script>
+        const lecteurAudio = document.getElementById('ma-demo');
+        const boutonPlayPause = document.getElementById('play-pause-bouton');
+
+        boutonPlayPause.addEventListener('click', function() {
+            if (lecteurAudio.paused) {
+                lecteurAudio.play();
+                boutonPlayPause.innerHTML = '❚❚';
+            } else {
+                lecteurAudio.pause();
+                boutonPlayPause.innerHTML = '▶';
+            }
+        });
+        
+        lecteurAudio.addEventListener('ended', function() {
+            boutonPlayPause.innerHTML = '▶';
+        });
+    </script>
+
+</body>
+</html>
